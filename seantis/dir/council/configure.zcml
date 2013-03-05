@@ -22,11 +22,18 @@
     <grok:grok package="." />
 
     <!-- Register an extension profile to make the product installable -->
-    <genericsetup:registerProfile
-        name="default"
+    <genericsetup:registerProfile name="default"
         title="seantis.dir.council"
         description="Council Directory"
         directory="profiles/default"
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot" 
+        />
+
+    <genericsetup:registerProfile name="izug_basetheme"
+        title="seantis.dir.council:izug_basetheme"
+        description="Council Directory for use with iZug Basetheme"
+        directory="profiles/izug_basetheme"
         provides="Products.GenericSetup.interfaces.EXTENSION"
         for="Products.CMFPlone.interfaces.IPloneSiteRoot" 
         />
@@ -37,7 +44,14 @@
         description="Installs Council Directory with Zug Theme."
         profiles="izug.basetheme:default
                   izug.basetheme:zug_directories
-                  seantis.dir.council:default"
+                  seantis.dir.council:default
+                  seantis.dir.council:izug_basetheme"
         />
+
+    <!-- Resources -->
+    <browser:resourceDirectory 
+        name="seantis.dir.council.stylesheets" 
+        directory="css"
+    />
 
 </configure>
