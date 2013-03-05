@@ -1,11 +1,13 @@
 import imghdr
 
+from urllib import urlopen
 from five import grok
 
 from collective.dexteritytextindexer import searchable
 from plone.app.z3cform.wysiwyg import WysiwygFieldWidget
 from plone.directives import form
-from plone.namedfile.field import NamedImage
+from plone.namedfile.field import NamedImage as NamedImageField
+from plone.namedfile import NamedImage
 from zope.interface import Invalid
 from zope.schema import TextLine, Text
 
@@ -22,7 +24,7 @@ from seantis.dir.council import _
 class ICouncilDirectoryItem(IDirectoryItem):
     """Extends the seantis.dir.IDirectoryItem."""
 
-    image = NamedImage(
+    image = NamedImageField(
         title=_(u'Image'),
         required=False,
         default=None
@@ -127,3 +129,13 @@ class ExtendedDirectoryItemFieldMap(grok.Adapter):
         ]
 
         itemmap.add_fields(extended, len(itemmap))
+
+        # this should be temporary affair
+        def on_object_add(obj, record):
+            url = record[7]
+            
+            if url.startswith('http://kantonsrat'):
+                raw = urlopen(url + '/@@images/image').read()
+                obj.image = NamedImage(raw)
+
+        itemmap.on_object_add = on_object_add
