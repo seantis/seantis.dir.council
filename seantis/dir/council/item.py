@@ -126,7 +126,9 @@ class ExtendedDirectoryItemFieldMap(grok.Adapter):
             url = record[7]
 
             if url.startswith('http://kantonsrat'):
-                raw = urlopen(url + '/@@images/image').read()
-                obj.image = NamedImage(raw, filename=u'image')
+                result = urlopen(url + '/@@images/image')
+
+                if result.getcode() == 200:
+                    obj.image = NamedImage(result.read(), filename=u'image')
 
         itemmap.on_object_add = on_object_add
