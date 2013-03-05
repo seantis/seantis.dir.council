@@ -1,0 +1,37 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="seantis.dir.council" lang="en">
+<body>
+
+<metal:main fill-slot="main">
+
+    <div tal:replace="structure provider:plone.abovecontenttitle" />
+
+    <a tal:attributes="href python: context.absolute_url() + '?reset=true'"><h1 class="documentFirstHeading" tal:content="context/title" /></a>
+
+    <div tal:replace="structure provider:plone.belowcontenttitle" />
+    <div tal:replace="structure provider:plone.abovecontentbody" />
+
+    <tal:block condition="view/show_banner">
+        <div tal:replace="structure provider:seantis.dir.base.directory.viewletmanager"/>
+    </tal:block>
+
+    <div id="directoryInfo">
+      <div id="directoryResultList">
+        <div class="directoryResult" tal:repeat="item view/batch">
+          <div>
+            <div class="directoryInfoText">
+              <a tal:content="item/Title" tal:attributes="href item/getURL"></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+</metal:main>
+
+</body>
+</html>

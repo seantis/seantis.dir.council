@@ -42,6 +42,15 @@ class CouncilDirectory(directory.Directory):
         return tuple()
 
 
+class CouncilDirectoryView(directory.View):
+    grok.name('view')
+    grok.context(ICouncilDirectory)
+    grok.require('zope2.View')
+
+    itemsperpage = 250
+    template = grok.PageTemplateFile('templates/directory.pt')
+
+
 class ExtendedDirectoryViewlet(grok.Viewlet):
     grok.context(ICouncilDirectory)
     grok.name('seantis.dir.council.directory.detail')

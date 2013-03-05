@@ -88,15 +88,6 @@ class CouncilDirectoryItem(item.DirectoryItem):
     pass
 
 
-class CouncilDirectoryItemViewlet(grok.Viewlet):
-    grok.context(ICouncilDirectoryItem)
-    grok.name('seantis.dir.council.item.detail')
-    grok.require('zope2.View')
-    grok.viewletmanager(item.DirectoryItemViewletManager)
-
-    template = grok.PageTemplateFile('templates/listitem.pt')
-
-
 class View(core.View):
     """Default view of a seantis.dir.council item."""
     grok.context(ICouncilDirectoryItem)
@@ -133,9 +124,9 @@ class ExtendedDirectoryItemFieldMap(grok.Adapter):
         # this should be temporary affair
         def on_object_add(obj, record):
             url = record[7]
-            
+
             if url.startswith('http://kantonsrat'):
                 raw = urlopen(url + '/@@images/image').read()
-                obj.image = NamedImage(raw)
+                obj.image = NamedImage(raw, filename=u'image')
 
         itemmap.on_object_add = on_object_add
