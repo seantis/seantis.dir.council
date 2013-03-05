@@ -1,0 +1,70 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2013-03-05 15:53+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: DOMAIN\n"
+
+#: ./directory.py:36
+msgid "Committee"
+msgstr "Kommission"
+
+#: ./profiles/default/types/seantis.dir.council.directory.xml
+msgid "Council Directory"
+msgstr "Gemeinderats Verzeichnis"
+
+#: ./profiles/default/types/seantis.dir.council.item.xml
+msgid "Council Directory Item"
+msgstr "Gemeinderats Verzeichnis Eintarg"
+
+#: ./item.py:63
+msgid "Fax"
+msgstr "Fax"
+
+#: ./directory.py:37
+msgid "Function"
+msgstr "Funktion"
+
+#: ./directory.py:15
+#: ./item.py:28
+msgid "Image"
+msgstr "Bild"
+
+#: ./item.py:71
+msgid "Information"
+msgstr "Information"
+
+#: ./directory.py:35
+msgid "Party"
+msgstr "Partei"
+
+#: ./item.py:56
+msgid "Phone"
+msgstr "Telefon"
+
+#: ./item.py:35
+msgid "Street"
+msgstr "Strasse"
+
+#: ./directory.py:34
+#: ./item.py:49
+msgid "Town"
+msgstr "Ort"
+
+#: ./item.py:84
+msgid "Unknown image format"
+msgstr "Unbekanntes Bildformat"
+
+#: ./item.py:42
+msgid "Zipcode"
+msgstr "PLZ"
+
