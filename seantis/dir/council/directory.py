@@ -2,6 +2,7 @@ from five import grok
 from plone.namedfile.field import NamedImage
 
 from seantis.dir.base import directory
+from seantis.dir.base import utils
 from seantis.dir.base.interfaces import IDirectory
 from seantis.dir.council import _
 
@@ -49,6 +50,10 @@ class CouncilDirectoryView(directory.View):
 
     itemsperpage = 250
     template = grok.PageTemplateFile('templates/directory.pt')
+
+    def tags(self, item):
+        tags = utils.flatten(category[2] for category in item.categories)
+        return list(tags)
 
 
 class ExtendedDirectoryViewlet(grok.Viewlet):

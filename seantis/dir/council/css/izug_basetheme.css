@@ -1,25 +1,25 @@
 /* overrides certain izug.basetheme styles */
-#directoryResultList, 
-#directoryResultList .directoryResult, 
-#directoryResultList .directoryInfoText, 
-#directoryResultList .directoryInfoText > a {
+.portaltype-seantis-dir-council-directory #directoryResultList, 
+.portaltype-seantis-dir-council-directory #directoryResultList .directoryResult, 
+.portaltype-seantis-dir-council-directory #directoryResultList .directoryInfoText, 
+.portaltype-seantis-dir-council-directory #directoryResultList .directoryInfoText > a {
     border: none;
     padding: 0;
     margin: 0;
     width: 100%;
 }
 
-#content #landingPageText {
+.portaltype-seantis-dir-council-directory #content #landingPageText {
    padding-top: 30px !important;   
    margin-bottom: 30px !important;
 }
 
-#content #directoryResultList .directoryResult:first-child {
+.portaltype-seantis-dir-council-directory #content #directoryResultList .directoryResult:first-child {
     border-top: 1px solid #efefef;
     padding: 10px 0 10px 10px;
 }
 
-#content #directoryResultList .directoryResult {
+.portaltype-seantis-dir-council-directory #content #directoryResultList .directoryResult {
     margin: 10px 0 10px 0;
     padding: 0 0 10px 10px;
     border-bottom: 1px solid #efefef;

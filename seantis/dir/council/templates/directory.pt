@@ -25,6 +25,9 @@
           <div>
             <div class="directoryInfoText">
               <a tal:content="item/Title" tal:attributes="href item/getURL"></a>
+              <div class="directory-tags">
+                <span tal:repeat="tag python: view.tags(item)" tal:content="tag" />
+              </div>
             </div>
           </div>
         </div>
