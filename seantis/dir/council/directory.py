@@ -1,5 +1,6 @@
 from five import grok
 from plone.namedfile.field import NamedImage
+from collections import namedtuple
 
 from seantis.dir.base import directory
 from seantis.dir.base import utils
@@ -43,6 +44,9 @@ class CouncilDirectory(directory.Directory):
         return tuple()
 
 
+DirectoryTag = namedtuple('DirectoryTag', ['name', 'url'])
+
+
 class CouncilDirectoryView(directory.View):
     grok.name('view')
     grok.context(ICouncilDirectory)
@@ -51,9 +55,27 @@ class CouncilDirectoryView(directory.View):
     itemsperpage = 250
     template = grok.PageTemplateFile('templates/directory.pt')
 
+    def generate_tags(self, item):
+
+        url = self.context.absolute_url() + '?filter&%s=%s'
+        excempted_categories = ['cat3']
+
+        for cat, label, value in item.categories:
+
+            if cat in excempted_categories:
+                continue
+
+            for value in utils.flatten(value):
+                if not value:
+                    continue
+
+                yield DirectoryTag(url=url % (cat, value), name=value)
+
     def tags(self, item):
-        tags = utils.flatten(category[2] for category in item.categories)
-        return list(tags)
+        return list(self.generate_tags(item))
+
+    def tag_url(self, tag):
+        return self.context.absolute_url() + '?filter&cat1='
 
 
 class ExtendedDirectoryViewlet(grok.Viewlet):
