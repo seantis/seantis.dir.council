@@ -20,3 +20,23 @@
     font-weight: normal;
     color: black;
 }
+
+.council-details .directoryInfoText {
+    padding-left: 0 !important;
+}
+
+.council-details .directoryInfoImage {
+    float: left !important;   
+}
+
+div.council-address {
+    float: left;   
+}
+
+div.council-address ul {
+    list-style: none;
+}
+
+ul.council-address li {
+    line-height: 12px;   
+}

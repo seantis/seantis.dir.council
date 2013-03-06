@@ -8,10 +8,6 @@
    
 <body>
 
-<metal:block fill-slot="head_slot">
-  <metal:use use-macro="context/@@seantis-dir-macros/macros/openlayers"></metal:use>
-</metal:block>
-
 <metal:main fill-slot="main">
     <tal:main-macro metal:define-macro="main">
         <div tal:replace="structure provider:plone.abovecontenttitle" />
@@ -19,25 +15,25 @@
         <div tal:replace="structure provider:plone.belowcontenttitle" />
         <div tal:replace="structure provider:plone.abovecontentbody" />
         
-        <div id="directoryDetails">
-
-            <div class="directoryTypes" tal:condition="context/cat1" tal:content="python: ', '.join(context.cat1)"></div>
+        <div id="directoryDetails" class="council-details">
 
             <h2>
                 <tal:block content="context/title" />
             </h2>
             
-            <div id="directoryResultList">
-              <div class="directoryInfoText">
+            <div class="directoryInfoText">
 
-                <div class="directoryInfoImage" tal:condition="context/image">
-                    <img tal:replace="structure context/@@images/image/thumb" />
-                </div>
-
+              <div class="directoryInfoImage" tal:condition="context/image">
+                  <img tal:replace="structure context/@@images/image/thumb" />
               </div>
-            </div>
 
-            <metal:use use-macro="context/@@seantis-dir-macros/macros/map"></metal:use>
+              <div class="council-address">
+                <ul>
+                  <tal:block replace="structure context/address_lines" />
+                </ul>
+              </div>
+              
+            </div>
 
         </div>
 

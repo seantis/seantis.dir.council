@@ -13,6 +13,7 @@ from zope.schema import TextLine, Text
 
 from seantis.dir.base import item
 from seantis.dir.base import core
+from seantis.dir.base.schemafields import Email, AutoProtocolURI
 from seantis.dir.base.interfaces import (
     IFieldMapExtender, IDirectoryItem
 )
@@ -65,6 +66,20 @@ class ICouncilDirectoryItem(IDirectoryItem):
         default=u''
     )
 
+    searchable('url')
+    url = AutoProtocolURI(
+        title=_(u'Internet Address'),
+        required=False,
+        default=None
+    )
+
+    searchable('email')
+    email = Email(
+        title=_(u'Email'),
+        required=False,
+        default=u''
+    )
+
     searchable('information')
     form.widget(information=WysiwygFieldWidget)
     information = Text(
@@ -85,7 +100,23 @@ def validate_image(value):
 
 
 class CouncilDirectoryItem(item.DirectoryItem):
-    pass
+
+    def address_components(self):
+        if self.street:
+            yield self.street
+
+        if self.zipcode or self.city:
+            yield ', '.join((self.zipcode, self.city))
+
+        if self.email:
+            yield '<a href="mailto:%(m)s">%(m)s</a>' % {'m': self.email}
+
+        if self.url:
+            yield '<a href="%(u)s">%(u)s</a>' % {'u': self.url}
+
+    @property
+    def address_lines(self):
+        return '\n'.join('<li>%s</li>' % c for c in self.address_components())
 
 
 class View(core.View):
