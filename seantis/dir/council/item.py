@@ -139,11 +139,12 @@ class View(core.View):
         tags = []
 
         Tag = namedtuple('ItemTag', ['label', 'value', 'description'])
+        case_insensitive = lambda v: v.lower()
 
         for category in sorted(descriptions):
             values = getattr(self.context, category)
 
-            for value in sorted(utils.flatten(values)):
+            for value in sorted(utils.flatten(values), key=case_insensitive):
                 if value in descriptions[category]:
                     desc = descriptions[category][value]
                 else:
