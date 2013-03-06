@@ -7,6 +7,14 @@
     padding-top: 5px;
 }
 
+.portaltype-seantis-dir-council-directory #landingPageIntro {
+    margin-top: -35px;   
+}
+
+.portaltype-seantis-dir-council-directory #landingPageText {
+    width: 97%;   
+}
+
 .directory-tags span {
     background-color: #efefef;
     font-size: 10px;
@@ -19,6 +27,17 @@
     padding: 0; 
     font-weight: normal;
     color: black;
+}
+
+.council-left-column {
+    float: left;
+    width: 50%;   
+    margin-top: 30px;
+}
+
+.council-right-column {
+    float: right;   
+    margin-top: 15px;
 }
 
 .council-details .directoryInfoText {
@@ -43,7 +62,6 @@ ul.council-address li {
 
 .council-tags {
     float: right;
-    
 }
 
 .council-tags h3 {

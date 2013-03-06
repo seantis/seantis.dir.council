@@ -1,6 +1,6 @@
 from five import grok
 from plone.namedfile.field import NamedImage
-from collections import namedtuple
+from collections import namedtuple, OrderedDict
 
 from seantis.dir.base import directory
 from seantis.dir.base import utils
@@ -47,7 +47,7 @@ class CouncilDirectory(directory.Directory):
 DirectoryTag = namedtuple('DirectoryTag', ['name', 'url'])
 
 
-class CouncilDirectoryView(directory.View):
+class CouncilDirectoryView(directory.View, directory.DirectoryCatalogMixin):
     grok.name('view')
     grok.context(ICouncilDirectory)
     grok.require('zope2.View')
@@ -57,7 +57,7 @@ class CouncilDirectoryView(directory.View):
 
     def generate_tags(self, item):
 
-        url = self.context.absolute_url() + '?filter&%s=%s'
+        url = self.directory.absolute_url() + '?filter&%s=%s'
         excempted_categories = ['cat3']
 
         for cat, label, value in item.categories:
@@ -66,16 +66,24 @@ class CouncilDirectoryView(directory.View):
                 continue
 
             for value in utils.flatten(value):
-                if not value:
-                    continue
-
                 yield DirectoryTag(url=url % (cat, value), name=value)
 
     def tags(self, item):
         return list(self.generate_tags(item))
 
-    def tag_url(self, tag):
-        return self.context.absolute_url() + '?filter&cat1='
+    def all_tags(self):
+
+        labels = self.directory.labels()
+        url = self.directory.absolute_url() + '?filter&%s=%s'
+
+        result = OrderedDict()
+        possible_values = self.catalog.grouped_possible_values()
+
+        for cat, values in possible_values.items():
+            values = sorted(values.keys())
+            result[labels[cat]] = [(url % (cat, v), v) for v in values]
+
+        return result
 
 
 class ExtendedDirectoryViewlet(grok.Viewlet):

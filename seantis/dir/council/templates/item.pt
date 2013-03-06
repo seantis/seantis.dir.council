@@ -34,7 +34,7 @@
               </div>
 
               <div class="council-tags">
-                <div class="council-tags-group" tal:repeat="item python: view.tags().items()">
+                <div tal:repeat="item python: view.tags().items()">
                   <h3 tal:content="python: item[0]"></h3>
                   <ul>
                     <tal:block repeat="tag python: item[1]">

@@ -15,26 +15,44 @@
     <div tal:replace="structure provider:plone.belowcontenttitle" />
     <div tal:replace="structure provider:plone.abovecontentbody" />
 
-    <tal:block condition="view/show_banner">
-        <div tal:replace="structure provider:seantis.dir.base.directory.viewletmanager"/>
-    </tal:block>
+    <div class="council-left-column">
+      <tal:block condition="view/show_banner">
+          <div tal:replace="structure provider:seantis.dir.base.directory.viewletmanager"/>
+      </tal:block>
 
-    <div id="directoryInfo">
-      <div id="directoryResultList">
-        <div class="directoryResult" tal:repeat="item view/batch">
-          <div>
-            <div class="directoryInfoText">
-              <a tal:content="item/Title" tal:attributes="href item/getURL"></a>
-              <div class="directory-tags">
-                <a tal:repeat="tag python: view.tags(item)" tal:attributes="href tag/url">
-                  <span tal:content="tag/name" />
-                </a>
+      <div id="directoryInfo">
+        <div id="directoryResultList">
+          <div class="directoryResult" tal:repeat="item view/batch">
+            <div>
+              <div class="directoryInfoText">
+                <a tal:content="item/Title" tal:attributes="href item/getURL"></a>
+                <div class="directory-tags">
+                  <a tal:repeat="tag python: view.tags(item)" tal:attributes="href tag/url">
+                    <span tal:content="tag/name" />
+                  </a>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <div class="council-right-column">
+      <div class="council-tags">
+        <div class="directory-tags" tal:repeat="item python: view.all_tags().items()">
+          <h3 tal:content="python: item[0]"></h3>
+          <ul>
+            <tal:block repeat="tag python: item[1]">
+              <li>
+                <a tal:content="python: tag[1]" tal:attributes="href python: tag[0]"></a>
+              </li>
+            </tal:block>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="visualBreak"></div>
     
 </metal:main>
 
