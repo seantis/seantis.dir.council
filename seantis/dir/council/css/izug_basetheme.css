@@ -40,3 +40,30 @@ div.council-address ul {
 ul.council-address li {
     line-height: 12px;   
 }
+
+.council-tags {
+    float: right;
+    
+}
+
+.council-tags h3 {
+    border-bottom: 1px solid #ddd;
+    min-width: 400px;
+}
+
+.council-tags ul {
+    list-style: none;
+    margin-left: 0;   
+}
+
+.council-tags span {
+    display: block;
+    line-height: 16px;
+    float: left;
+}
+
+.council-tag-description-block {
+    float: left;
+    margin-left: 10px;
+    max-width: 360px;
+}
