@@ -32,6 +32,23 @@
                   <tal:block replace="structure context/address_lines" />
                 </ul>
               </div>
+
+              <div class="council-tags">
+                <div class="council-tags-group" tal:repeat="item python: view.tags().items()">
+                  <h3 tal:content="python: item[0]"></h3>
+                  <ul>
+                    <tal:block repeat="tag python: item[1]">
+                      <li >
+                        <span tal:content="tag/value" class="council-tag-value"></span>
+                        <tal:block tal:condition="tag/description">
+                          <span tal:content="tag/description/description" class="council-tag-description"></span>
+                          <a tal:condition="tag/description/url" tal:content="tag/description/url" tal:attributes="href tag/description/url" target="_blank" class="council-tag-link"></a>
+                        </tal:block>
+                      </li>
+                    </tal:block>
+                  </ul>
+                </div>
+              </div>
               
             </div>
 

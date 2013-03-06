@@ -1,5 +1,8 @@
 import imghdr
 
+from operator import attrgetter
+from collections import namedtuple
+from itertools import groupby
 from urllib import urlopen
 from five import grok
 
@@ -13,6 +16,7 @@ from zope.schema import TextLine, Text
 
 from seantis.dir.base import item
 from seantis.dir.base import core
+from seantis.dir.base import utils
 from seantis.dir.base.schemafields import Email, AutoProtocolURI
 from seantis.dir.base.interfaces import (
     IFieldMapExtender, IDirectoryItem
@@ -125,6 +129,35 @@ class View(core.View):
     grok.require('zope2.View')
 
     template = grok.PageTemplateFile('templates/item.pt')
+
+    def tags(self):
+        directory = self.context.get_parent()
+
+        labels = directory.labels()
+        descriptions = directory.descriptions()
+
+        tags = []
+
+        Tag = namedtuple('ItemTag', ['label', 'value', 'description'])
+
+        for category in sorted(descriptions):
+            values = getattr(self.context, category)
+
+            for value in sorted(utils.flatten(values)):
+                if value in descriptions[category]:
+                    desc = descriptions[category][value]
+                else:
+                    desc = None
+
+                tags.append(Tag(labels[category], value, desc))
+
+        # why u no accept generators zpt???
+        result = {}
+
+        for group, values in groupby(tags, attrgetter('label')):
+            result[group] = list(values)
+
+        return result
 
 
 class ExtendedDirectoryItemFieldMap(grok.Adapter):
