@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-03-05 15:53+0000\n"
+"POT-Creation-Date: 2013-03-07 09:52+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,7 +29,11 @@ msgstr ""
 msgid "Council Directory Item"
 msgstr ""
 
-#: ./item.py:63
+#: ./item.py:82
+msgid "Email"
+msgstr ""
+
+#: ./item.py:68
 msgid "Fax"
 msgstr ""
 
@@ -38,36 +42,40 @@ msgid "Function"
 msgstr ""
 
 #: ./directory.py:15
-#: ./item.py:28
+#: ./item.py:33
 msgid "Image"
 msgstr ""
 
-#: ./item.py:71
+#: ./item.py:90
 msgid "Information"
+msgstr ""
+
+#: ./item.py:75
+msgid "Internet Address"
 msgstr ""
 
 #: ./directory.py:35
 msgid "Party"
 msgstr ""
 
-#: ./item.py:56
+#: ./item.py:61
 msgid "Phone"
 msgstr ""
 
-#: ./item.py:35
+#: ./item.py:40
 msgid "Street"
 msgstr ""
 
 #: ./directory.py:34
-#: ./item.py:49
+#: ./item.py:54
 msgid "Town"
 msgstr ""
 
-#: ./item.py:84
+#: ./item.py:103
 msgid "Unknown image format"
 msgstr ""
 
-#: ./item.py:42
+#: ./item.py:47
 msgid "Zipcode"
 msgstr ""
 
