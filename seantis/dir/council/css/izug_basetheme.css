@@ -60,16 +60,26 @@ ul.council-address li {
     line-height: 12px;   
 }
 
+/* council tag information block on items view */
 .council-tags {
     float: right;
 }
 
 .council-tags h3 {
+    padding-left: 14px;
     border-bottom: 1px solid #ddd;
-    min-width: 400px;
-    font-weight: normal;
     color: #454545;
-    padding-left: 13px;
+    font-weight: normal;
+}
+
+.council-tag-pointer {
+    float: left;
+    width: 14px;  
+}
+
+.council-tag-pointee {
+    float: left;
+    max-width: 390px; 
 }
 
 .council-tags ul {
@@ -80,13 +90,4 @@ ul.council-address li {
 .council-tags span {
     line-height: 16px;
     font-weight: bold;
-}
-
-.council-tags span:before {
-    content: "» ";
-}
-
-.council-tag-description-block {
-    padding-left: 13px;
-    max-width: 360px;
 }

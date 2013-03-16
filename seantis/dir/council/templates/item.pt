@@ -39,10 +39,13 @@
                   <ul>
                     <tal:block repeat="tag python: item[1]">
                       <li>
-                        <span tal:content="tag/value" class="council-tag-value"></span>
-                        <div class="council-tag-description-block" tal:condition="tag/description">
-                          <div tal:content="tag/description/description" class="council-tag-description"></div>
-                          <a tal:condition="tag/description/url" tal:content="tag/description/url" tal:attributes="href tag/description/url" target="_blank" class="council-tag-url"></a>
+                        <div class="council-tag-pointer">&raquo;&nbsp;</div>
+                        <div class="council-tag-pointee">
+                          <span tal:content="tag/value" class="council-tag-value"></span>
+                          <div class="council-tag-description-block" tal:condition="tag/description">
+                            <div tal:content="tag/description/description" class="council-tag-description"></div>
+                            <a tal:condition="tag/description/url" tal:content="tag/description/url" tal:attributes="href tag/description/url" target="_blank" class="council-tag-url"></a>
+                          </div>
                         </div>
                         <div class="visualClear"></div>
                       </li>
