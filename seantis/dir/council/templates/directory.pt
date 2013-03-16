@@ -15,7 +15,29 @@
     <div tal:replace="structure provider:plone.belowcontenttitle" />
     <div tal:replace="structure provider:plone.abovecontentbody" />
 
+    <tal:block condition="view/filtered">
+      <div class="directory-filter-info" tal:define="
+        terms view/used_terms; 
+        labels view/labels
+      " tal:condition="view/used_terms">
+        <div class="directory-filter-labels">
+          <div tal:repeat="term python: sorted(terms.items(), key=lambda i: i[0])">
+            <span tal:content="python: labels[term[0]]"></span>:
+          </div>
+        </div>
+        <div class="directory-filter-values">
+          <div tal:repeat="term python: sorted(terms.items(), key=lambda i: i[0])">
+            <span tal:content="python: term[1]"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="visualClear"></div>
+
+    </tal:block>
+
     <div class="council-left-column">
+
       <tal:block condition="view/show_banner">
           <div tal:replace="structure provider:seantis.dir.base.directory.viewletmanager"/>
       </tal:block>
@@ -55,7 +77,7 @@
     </div> 
     </tal:block>
 
-    <div class="visualBreak"></div>
+    <div class="visualClear"></div>
     
 </metal:main>
 

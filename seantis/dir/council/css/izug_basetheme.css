@@ -32,7 +32,7 @@
 .council-left-column {
     float: left;
     width: 50%;   
-    margin-top: 30px;
+    margin-top: 15px;
 }
 
 .council-right-column {
@@ -90,4 +90,21 @@ ul.council-address li {
 .council-tags span {
     line-height: 16px;
     font-weight: bold;
+}
+
+/* filter info on directory view */
+.directory-filter-info {
+    margin: 15px 0 0 0;
+    padding: 10px 0 10px 30px;
+}
+
+.directory-filter-labels {
+   color: #454545;
+   float: left;
+   margin-right: 15px;
+}
+
+/* only shown in print for now */
+.directory-filter-info {
+    display: none;
 }
