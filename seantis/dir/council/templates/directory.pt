@@ -37,6 +37,8 @@
         </div>
       </div>
     </div>
+    <tal:block replace="nothing">
+    make this an option on the directory => TODO
     <div class="council-right-column">
       <div class="council-tags">
         <div class="directory-tags" tal:repeat="item python: view.all_tags().items()">
@@ -50,7 +52,8 @@
           </ul>
         </div>
       </div>
-    </div>
+    </div> 
+    </tal:block>
 
     <div class="visualBreak"></div>
     
