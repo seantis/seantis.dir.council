@@ -67,6 +67,9 @@ ul.council-address li {
 .council-tags h3 {
     border-bottom: 1px solid #ddd;
     min-width: 400px;
+    font-weight: normal;
+    color: #454545;
+    padding-left: 13px;
 }
 
 .council-tags ul {
@@ -75,13 +78,15 @@ ul.council-address li {
 }
 
 .council-tags span {
-    display: block;
     line-height: 16px;
-    float: left;
+    font-weight: bold;
+}
+
+.council-tags span:before {
+    content: "» ";
 }
 
 .council-tag-description-block {
-    float: left;
-    margin-left: 10px;
+    padding-left: 13px;
     max-width: 360px;
 }
