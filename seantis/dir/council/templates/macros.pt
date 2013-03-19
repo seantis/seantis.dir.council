@@ -35,7 +35,7 @@
         </ul>
       </div>
     </div>
-
+    <div class="after-council-tags"></div>
     </metal:define>
 
   </body>
