@@ -103,8 +103,3 @@ ul.council-address li {
    float: left;
    margin-right: 15px;
 }
-
-/* only shown in print for now */
-.directory-filter-info {
-    display: none;
-}
