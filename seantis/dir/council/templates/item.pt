@@ -33,26 +33,9 @@
                 </ul>
               </div>
 
-              <div class="council-tags">
-                <div tal:repeat="item python: view.tags().items()">
-                  <h3 tal:content="python: item[0]"></h3>
-                  <ul>
-                    <tal:block repeat="tag python: item[1]">
-                      <li>
-                        <div class="council-tag-pointer">&raquo;&nbsp;</div>
-                        <div class="council-tag-pointee">
-                          <span tal:content="tag/value" class="council-tag-value"></span>
-                          <div class="council-tag-description-block" tal:condition="tag/description">
-                            <div tal:content="tag/description/description" class="council-tag-description"></div>
-                            <a tal:condition="tag/description/url" tal:content="tag/description/url" tal:attributes="href tag/description/url" target="_blank" class="council-tag-url"></a>
-                          </div>
-                        </div>
-                        <div class="visualClear"></div>
-                      </li>
-                    </tal:block>
-                  </ul>
-                </div>
-              </div>
+              <tal:block define="tags python: view.tags().items()">
+                <metal:use use-macro="context/@@seantis-dir-council-macros/macros/council-tags"></metal:use>
+              </tal:block>
               
             </div>
 

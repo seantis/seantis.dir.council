@@ -1,3 +1,6 @@
+from itertools import groupby
+from operator import attrgetter
+
 from five import grok
 from plone.namedfile.field import NamedImage
 from collections import namedtuple, OrderedDict
@@ -44,7 +47,7 @@ class CouncilDirectory(directory.Directory):
         return tuple()
 
 
-DirectoryTag = namedtuple('DirectoryTag', ['name', 'url'])
+DirectoryTag = namedtuple('DirectoryTag', ['name', 'url', 'category'])
 
 
 class CouncilDirectoryView(directory.View, directory.DirectoryCatalogMixin):
@@ -58,15 +61,13 @@ class CouncilDirectoryView(directory.View, directory.DirectoryCatalogMixin):
     def generate_tags(self, item):
 
         url = self.directory.absolute_url() + '?filter&%s=%s'
-        excempted_categories = ['cat3']
 
         for cat, label, value in item.categories:
 
-            if cat in excempted_categories:
-                continue
-
             for value in utils.flatten(value):
-                yield DirectoryTag(url=url % (cat, value), name=value)
+                yield DirectoryTag(
+                    url=url % (cat, value), name=value, category=cat
+                )
 
     def tags(self, item):
         return list(self.generate_tags(item))
@@ -82,6 +83,36 @@ class CouncilDirectoryView(directory.View, directory.DirectoryCatalogMixin):
         for cat, values in possible_values.items():
             values = sorted(values.keys())
             result[labels[cat]] = [(url % (cat, v), v) for v in values]
+
+        return result
+
+    def filter_tags(self):
+
+        labels = self.directory.labels()
+        descriptions = self.directory.descriptions()
+
+        tags = []
+
+        Tag = namedtuple('ItemTag', ['label', 'value', 'description'])
+
+        for category in sorted(descriptions):
+
+            if category not in self.used_terms:
+                continue
+
+            value = self.used_terms[category]
+
+            if value in descriptions[category]:
+                desc = descriptions[category][value]
+            else:
+                desc = None
+
+            tags.append(Tag(labels[category], value, desc))
+
+        result = {}
+
+        for group, values in groupby(tags, attrgetter('label')):
+            result[group] = list(values)
 
         return result
 

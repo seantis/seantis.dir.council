@@ -8,7 +8,7 @@
 }
 
 .portaltype-seantis-dir-council-directory #landingPageIntro {
-    margin-top: -35px;   
+    margin-top: -15px;   
 }
 
 .portaltype-seantis-dir-council-directory #landingPageText {
@@ -60,6 +60,11 @@ ul.council-address li {
     line-height: 12px;   
 }
 
+/* Hide comittee in iZug */
+.cat3-tag span {
+    display: none;
+}
+
 /* council tag information block on items view */
 .council-tags {
     float: right;
@@ -93,13 +98,15 @@ ul.council-address li {
 }
 
 /* filter info on directory view */
-.directory-filter-info {
-    margin: 15px 0 0 0;
-    padding: 10px 0 10px 30px;
+#directoryInfo {
+     margin-top: 10px;   
 }
 
-.directory-filter-labels {
-   color: #454545;
-   float: left;
-   margin-right: 15px;
+.portaltype-seantis-dir-council-directory .council-tags {
+    margin: 10px 0 0 20px;
+    width: 450px;   
+}
+
+.portaltype-seantis-dir-council-directory .council-tag-description {
+    width: 450px   
 }

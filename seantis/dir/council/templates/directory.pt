@@ -15,25 +15,8 @@
     <div tal:replace="structure provider:plone.belowcontenttitle" />
     <div tal:replace="structure provider:plone.abovecontentbody" />
 
-    <tal:block condition="view/filtered">
-      <div class="directory-filter-info" tal:define="
-        terms view/used_terms; 
-        labels view/labels
-      " tal:condition="view/used_terms">
-        <div class="directory-filter-labels">
-          <div tal:repeat="term python: sorted(terms.items(), key=lambda i: i[0])">
-            <span tal:content="python: labels[term[0]]"></span>:
-          </div>
-        </div>
-        <div class="directory-filter-values">
-          <div tal:repeat="term python: sorted(terms.items(), key=lambda i: i[0])">
-            <span tal:content="python: term[1]"></span>
-          </div>
-        </div>
-      </div>
-
-      <div class="visualClear"></div>
-
+    <tal:block condition="view/filtered" tal:define="tags python: view.filter_tags().items()">
+      <metal:use use-macro="context/@@seantis-dir-council-macros/macros/council-tags"></metal:use>
     </tal:block>
 
     <div class="council-left-column">
@@ -49,7 +32,7 @@
               <div class="directoryInfoText">
                 <a tal:content="item/Title" tal:attributes="href item/getURL"></a>
                 <div class="directory-tags">
-                  <a tal:repeat="tag python: view.tags(item)" tal:attributes="href tag/url">
+                  <a tal:repeat="tag python: view.tags(item)" tal:attributes="href tag/url; class python: '{}-tag'.format(tag.category)">
                     <span tal:content="tag/name" />
                   </a>
                 </div>
