@@ -141,7 +141,7 @@ class View(core.View):
         Tag = namedtuple('ItemTag', ['label', 'value', 'description'])
 
         for category in sorted(descriptions):
-            values = getattr(self.context, category)
+            values = getattr(self.context, category) or []
 
             for value in sorted(utils.flatten(values)):
                 if value in descriptions[category]:
