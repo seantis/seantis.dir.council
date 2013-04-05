@@ -60,6 +60,11 @@ ul.council-address li {
     line-height: 12px;   
 }
 
+div.council-information {
+    padding-left: 18px;
+    width: 400px;
+}
+
 /* Hide comittee in iZug */
 .cat3-tag span {
     display: none;

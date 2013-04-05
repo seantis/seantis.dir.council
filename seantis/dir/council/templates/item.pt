@@ -31,6 +31,9 @@
                 <ul>
                   <tal:block replace="structure context/address_lines" />
                 </ul>
+
+                <div tal:condition="python: hasattr(context, 'information') and context.information" class="council-information" tal:content="structure context/information"></div>
+
               </div>
 
               <tal:block define="tags python: view.tags().items()">
