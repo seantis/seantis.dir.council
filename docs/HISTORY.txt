@@ -1,11 +1,12 @@
 
 # Changelog
 
-1.2 (unreleased)
-----------------
+1.5 (unreleased)
+---
 
 - Validator for image field.
 - Attachement field added.
+- Added compatiblity with seantis.dir.base 1.5
 
 1.2a
 ----

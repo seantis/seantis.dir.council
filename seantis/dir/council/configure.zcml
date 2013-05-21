@@ -54,4 +54,14 @@
         directory="css"
     />
 
+    <!-- Upgrades -->
+    <genericsetup:upgradeStep
+        title="Adds new DirectoryCategorized behavior"
+        description=""
+        source="*"
+        destination="1000"
+        handler=".upgrades.upgrade_to_1000"
+        profile="seantis.dir.council:default">
+    </genericsetup:upgradeStep>
+
 </configure>

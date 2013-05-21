@@ -19,7 +19,7 @@ from seantis.dir.base import core
 from seantis.dir.base import utils
 from seantis.dir.base.schemafields import Email, AutoProtocolURI
 from seantis.dir.base.interfaces import (
-    IFieldMapExtender, IDirectoryItem
+    IFieldMapExtender, IDirectoryItem, IDirectoryCategorized
 )
 
 from seantis.dir.council.directory import ICouncilDirectory
@@ -131,7 +131,7 @@ class View(core.View):
     template = grok.PageTemplateFile('templates/item.pt')
 
     def tags(self):
-        directory = self.context.get_parent()
+        directory = self.context.aq_inner.aq_parent
 
         labels = directory.labels()
         descriptions = directory.descriptions()
@@ -139,9 +139,10 @@ class View(core.View):
         tags = []
 
         Tag = namedtuple('ItemTag', ['label', 'value', 'description'])
+        categorized = IDirectoryCategorized(self.context)
 
         for category in sorted(descriptions):
-            values = getattr(self.context, category) or []
+            values = getattr(categorized, category) or []
 
             for value in sorted(utils.flatten(values)):
                 if value in descriptions[category]:

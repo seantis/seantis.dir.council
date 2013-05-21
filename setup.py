@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '1.3a1'
+version = '1.5'
 
 zug_require = [
     'izug.basetheme',
@@ -18,10 +18,13 @@ setup(name='seantis.dir.council',
       # Get more strings from
       # http://pypi.python.org/pypi?:action=list_classifiers
       classifiers=[
-          "Framework :: Plone",
-          "Programming Language :: Python",
+          'Framework :: Plone',
+          'Framework :: Plone :: 4.3',
+          'Intended Audience :: Developers',
+          'Topic :: Software Development :: Libraries :: Python Modules',
+          'Programming Language :: Python',
       ],
-      keywords='',
+      keywords='council directory seantis plone dexterity',
       author='Seantis GmbH',
       author_email='info@seantis.ch',
       url='https://github.com/seantis/seantis.dir.council',
@@ -37,11 +40,10 @@ setup(name='seantis.dir.council',
           'collective.autopermission',
           'collective.testcaselayer',
           'collective.dexteritytextindexer',
-          'seantis.dir.base',
+          'seantis.dir.base>=1.5',
           'ftw.inflator',
           'izug.basetheme'
       ],
-      zug_require=zug_require,
       extras_require=dict(zug=zug_require),
       entry_points="""
       [z3c.autoinclude.plugin]

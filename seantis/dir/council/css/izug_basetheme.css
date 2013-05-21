@@ -115,3 +115,11 @@ div.council-information {
 .portaltype-seantis-dir-council-directory .council-tag-description {
     width: 450px   
 }
+
+/* category descriptions are hidden by default, enable them */
+#formfield-form-widgets-cat1_descriptions,
+#formfield-form-widgets-cat2_descriptions,
+#formfield-form-widgets-cat3_descriptions,
+#formfield-form-widgets-cat4_descriptions {
+    display: block;
+}
