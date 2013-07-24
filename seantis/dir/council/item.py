@@ -22,6 +22,7 @@ from seantis.dir.base.interfaces import (
     IFieldMapExtender, IDirectoryItem, IDirectoryCategorized
 )
 
+from seantis.dir.council.utils import unsafe_strip_tags
 from seantis.dir.council.directory import ICouncilDirectory
 from seantis.dir.council import _
 
@@ -105,22 +106,41 @@ def validate_image(value):
 
 class CouncilDirectoryItem(item.DirectoryItem):
 
-    def address_components(self):
+    def address_components(self, include_links=True):
         if self.street:
             yield self.street
 
         if self.zipcode or self.city:
             yield ', '.join((self.zipcode, self.city))
 
-        if self.email:
+        if self.email and include_links:
             yield '<a href="mailto:%(m)s">%(m)s</a>' % {'m': self.email}
 
-        if self.url:
+        if self.url and include_links:
             yield '<a href="%(u)s">%(u)s</a>' % {'u': self.url}
 
     @property
     def address_lines(self):
         return '\n'.join('<li>%s</li>' % c for c in self.address_components())
+
+    def address_spans(self, include_links=True):
+        return u'<div class="item-address">{}</div>'.format(
+            u', '.join(
+                u'<span>{}</span>'.format(c)
+                for c in self.address_components(include_links=include_links)
+            )
+        )
+
+    def available_information(self):
+        if not self.information:
+            return u''
+
+        if not unsafe_strip_tags(self.information).strip():
+            return u''
+
+        return u'<div class="item-information">{}</div>'.format(
+            self.information
+        )
 
 
 class View(core.View):

@@ -72,3 +72,13 @@
     clear: both !important;
     margin: 0 0 0 15px;
 }
+/* additional directory item information */
+.directory-tmi * {
+    font-size: 10px;
+    font-weight: normal;
+    color: black !important;
+    margin: 0;
+}
+.directory-tmi {
+    padding: 10px 0 5px 0;
+}

@@ -31,6 +31,17 @@
             <div>
               <div class="directoryInfoText">
                 <a tal:content="item/Title" tal:attributes="href item/getURL"></a>
+                <div class="directory-tmi" tal:define="member item/getObject">
+                  <tal:block replace="nothing">
+                    This getObject-business is rather bad for performance. We could
+                    put all information into the metadata, but that would be a more
+                    permanent solution and since it's not a great idea anyway it's
+                    better to make it easily reversible. Refer to the commit
+                    with which this comment was introduced to see the old state.
+                  </tal:block>
+                  <tal:block replace="structure python: member.address_spans(include_links=False)" />
+                  <tal:block replace="structure python: member.available_information()" />
+                </div>
                 <div class="directory-tags">
                   <a tal:repeat="tag python: view.tags(item)" tal:attributes="href tag/url; class python: '{}-tag'.format(tag.category)">
                     <span tal:content="tag/name" />

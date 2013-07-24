@@ -65,6 +65,23 @@ div.council-information {
     width: 400px;
 }
 
+/* council member directory detail */
+.directory-tmi {
+    padding: 0 0 6px 22px;
+}
+
+.directory-tmi .item-address {
+    padding-bottom: 8px;
+}
+
+.directory-tmi * {
+    color: #454545 !important;
+}
+
+.directoryResult .item-information p {
+    padding-left: 0 !important;
+}
+
 /* Hide comittee in iZug */
 .cat3-tag span {
     display: none;
