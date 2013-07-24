@@ -4,7 +4,8 @@
 1.5.1 (unreleased)
 ------------------
 
-- Shows council member address and information on directory view
+- Shows council member address and information on directory view.
+- Adds full-resolution link below image.
 
 1.5
 ---

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-03-07 09:52+0000\n"
+"POT-Creation-Date: 2013-07-24 12:32+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
-#: ./directory.py:36
+#: ./directory.py:39
 msgid "Committee"
 msgstr "Kommission"
 
@@ -26,53 +26,57 @@ msgstr "Gemeinderats Verzeichnis"
 msgid "Council Directory Item"
 msgstr "Gemeinderats Verzeichnis Eintarg"
 
-#: ./item.py:82
+#: ./item.py:83
 msgid "Email"
 msgstr "Email"
 
-#: ./item.py:68
+#: ./item.py:69
 msgid "Fax"
 msgstr "Fax"
 
-#: ./directory.py:37
+#: ./templates/item.pt:29
+msgid "Full resolution portrait"
+msgstr "Portrait in voller Auflösung"
+
+#: ./directory.py:40
 msgid "Function"
 msgstr "Funktion"
 
-#: ./directory.py:15
-#: ./item.py:33
+#: ./directory.py:18
+#: ./item.py:34
 msgid "Image"
 msgstr "Bild"
 
-#: ./item.py:90
+#: ./item.py:91
 msgid "Information"
 msgstr "Information"
 
-#: ./item.py:75
+#: ./item.py:76
 msgid "Internet Address"
 msgstr "Internet Adresse"
 
-#: ./directory.py:35
+#: ./directory.py:38
 msgid "Party"
 msgstr "Partei"
 
-#: ./item.py:61
+#: ./item.py:62
 msgid "Phone"
 msgstr "Telefon"
 
-#: ./item.py:40
+#: ./item.py:41
 msgid "Street"
 msgstr "Strasse"
 
-#: ./directory.py:34
-#: ./item.py:54
+#: ./directory.py:37
+#: ./item.py:55
 msgid "Town"
 msgstr "Ort"
 
-#: ./item.py:103
+#: ./item.py:104
 msgid "Unknown image format"
 msgstr "Unbekanntes Bildformat"
 
-#: ./item.py:47
+#: ./item.py:48
 msgid "Zipcode"
 msgstr "PLZ"
 

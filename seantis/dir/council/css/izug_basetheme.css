@@ -119,6 +119,10 @@ div.council-information {
     font-weight: bold;
 }
 
+.full-resolution-portrait {
+    margin-top: 5px;
+}
+
 /* filter info on directory view */
 #directoryInfo {
      margin-top: 10px;   

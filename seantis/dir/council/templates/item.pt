@@ -25,6 +25,11 @@
 
               <div class="directoryInfoImage" tal:condition="context/image">
                   <img tal:replace="structure context/@@images/image/thumb" />
+                  <div class="full-resolution-portrait">
+                    <a tal:attributes="href string:${context/absolute_url}/@@images/image" target="_blank" i18n:translate="">
+                      Full resolution portrait
+                    </a>
+                  </div>
               </div>
 
               <div class="council-address">
