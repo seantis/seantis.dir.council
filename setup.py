@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '1.5.1'
+version = '1.7'
 
 zug_require = [
     'izug.basetheme',
@@ -40,7 +40,7 @@ setup(name='seantis.dir.council',
           'collective.autopermission',
           'collective.testcaselayer',
           'collective.dexteritytextindexer',
-          'seantis.dir.base>=1.5',
+          'seantis.dir.base>=1.7',
           'ftw.inflator',
           'izug.basetheme'
       ],

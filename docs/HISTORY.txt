@@ -1,6 +1,12 @@
 
 # Changelog
 
+1.7 (unreleased)
+----------------
+
+- Upgrade to seantis.dir.base 1.7.
+  [href]
+
 1.5.1
 -----
 

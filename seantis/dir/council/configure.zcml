@@ -64,4 +64,13 @@
         profile="seantis.dir.council:default">
     </genericsetup:upgradeStep>
 
+    <genericsetup:upgradeStep
+        title="Upgrade seantis.dir.base 1.7"
+        description=""
+        source="1000"
+        destination="1001"
+        handler=".upgrades.upgrade_1000_to_1001"
+        profile="seantis.dir.council:default">
+    </genericsetup:upgradeStep>
+
 </configure>
