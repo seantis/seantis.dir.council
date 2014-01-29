@@ -14,10 +14,11 @@ from plone.namedfile import NamedImage
 from zope.interface import Invalid
 from zope.schema import TextLine, Text
 
+from seantis.plonetools.schemafields import Email, Website
+
 from seantis.dir.base import item
 from seantis.dir.base import core
 from seantis.dir.base import utils
-from seantis.dir.base.schemafields import Email, AutoProtocolURI
 from seantis.dir.base.interfaces import (
     IFieldMapExtender, IDirectoryItem, IDirectoryCategorized
 )
@@ -72,7 +73,7 @@ class ICouncilDirectoryItem(IDirectoryItem):
     )
 
     searchable('url')
-    url = AutoProtocolURI(
+    url = Website(
         title=_(u'Internet Address'),
         required=False,
         default=None

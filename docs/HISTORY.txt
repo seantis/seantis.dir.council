@@ -7,6 +7,9 @@
 - Upgrade to seantis.dir.base 1.7.
   [href]
 
+- Adds seantis.plonetools integration.
+  [href]
+
 1.5.1
 -----
 

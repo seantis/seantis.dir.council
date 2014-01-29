@@ -42,7 +42,8 @@ setup(name='seantis.dir.council',
           'collective.dexteritytextindexer',
           'seantis.dir.base>=1.7',
           'ftw.inflator',
-          'izug.basetheme'
+          'izug.basetheme',
+          'seantis.plonetools>=0.9'
       ],
       extras_require=dict(zug=zug_require),
       entry_points="""
