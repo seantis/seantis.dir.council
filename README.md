@@ -1,3 +1,8 @@
+# WARNING
+
+This package is no longer developed. Other seantis.dir.* packages still are, but
+not this one.
+
 # Introduction
 
 seantis.dir.base allows to put dexterity objects into 1-4 categories, showing those categories in a browsable and searchable catalog.
